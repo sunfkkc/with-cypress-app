@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Stepper({ initial, onChange }: Props) {
+function Stepper({ initial = 0, onChange = () => {} }: Props) {
   const [count, setCount] = useState(initial);
 
   const handleIncrement = () => {
@@ -17,11 +17,11 @@ function Stepper({ initial, onChange }: Props) {
 
   return (
     <div>
-      <button data-cy='decrement' onClick={handleDecrement}>
+      <button data-cy="decrement" onClick={handleDecrement}>
         -
       </button>
-      <span data-cy='counter'>{count}</span>
-      <button data-cy='increment' onClick={handleIncrement}>
+      <span data-cy="counter">{count}</span>
+      <button data-cy="increment" onClick={handleIncrement}>
         +
       </button>
     </div>
@@ -31,6 +31,6 @@ function Stepper({ initial, onChange }: Props) {
 export default Stepper;
 
 interface Props {
-  initial: number;
-  onChange: (count: number) => void;
+  initial?: number;
+  onChange?: (count: number) => void;
 }
